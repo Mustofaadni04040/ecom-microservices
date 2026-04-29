@@ -33,6 +33,17 @@
 
 server:
   port: 8080
+  netty:
+    connection-timeout: 5000ms
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 10000ms
+        pool:
+          max-idle-time: 10000ms
 
 logging:
   level:
@@ -61,10 +72,17 @@ resilience4j:
     instances:
       ecomBreaker:
         registerHealthIndicator: true
-        slidingWindowSize: 10
-        minimumNumberOfCalls: 5
-        permittedNumberOfCallsInHalfOpenState: 3
-        waitDurationInOpenState: 10s
-        failureRateThreshold: 50
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 10
+        permittedNumberOfCallsInHalfOpenState: 5
+        waitDurationInOpenState: 30s
+        failureRateThreshold: 70
+        slowCallRateThreshold: 80
+        slowCallDurationThreshold: 5s
         automaticTransitionFromOpenToHalfOpenEnabled: true
         slidingWindowType: count_based
+  timelimiter:
+    instances:
+      ecomBreaker:
+        timeoutDuration: 10s
+        cancelRunningFuture: true
