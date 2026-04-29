@@ -2124,3 +2124,130 @@ Caused by: java.nio.channels.ClosedChannelException
 2026-04-29T18:03:48.973+07:00  INFO 24012 --- [order-service] [SpringApplicationShutdownHook] [                                                 ] com.netflix.discovery.DiscoveryClient    : Unregistering ...
 2026-04-29T18:03:49.061+07:00  INFO 24012 --- [order-service] [SpringApplicationShutdownHook] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ORDER-SERVICE/localhost:order-service:8083 - deregister  status: 200
 2026-04-29T18:03:49.068+07:00  INFO 24012 --- [order-service] [SpringApplicationShutdownHook] [                                                 ] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2026-04-29T18:04:10.756+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.ecommerce.order.OrderApplication     : Starting OrderApplication using Java 24 with PID 20048 (D:\Spring-Boot\ecom-microservices\order\target\classes started by ThinkPad in D:\Spring-Boot\ecom-microservices)
+2026-04-29T18:04:10.764+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.ecommerce.order.OrderApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-04-29T18:04:10.884+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-04-29T18:04:10.885+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=order-service, profiles=[default], label=null, version=null, state=null
+2026-04-29T18:04:15.990+07:00  INFO 20048 --- [order-service] [main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-29T18:04:17.066+07:00  INFO 20048 --- [order-service] [main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1032 ms. Found 2 JPA repository interfaces.
+2026-04-29T18:04:18.196+07:00  INFO 20048 --- [order-service] [main] [                                                 ] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-04-29T18:04:18.235+07:00  INFO 20048 --- [order-service] [main] [                                                 ] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-04-29T18:04:18.938+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2488d5f5-9302-3ce7-a14f-f3bcb3fd1d59
+2026-04-29T18:04:22.651+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-04-29T18:04:22.720+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-29T18:04:22.721+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-29T18:04:23.215+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-29T18:04:23.217+07:00  INFO 20048 --- [order-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 12326 ms
+2026-04-29T18:04:29.978+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-29T18:04:30.500+07:00  INFO 20048 --- [order-service] [main] [                                                 ] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-29T18:04:31.222+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-29T18:04:33.578+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-29T18:04:33.778+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-29T18:04:35.139+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9d4d221
+2026-04-29T18:04:35.145+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-29T18:04:35.509+07:00  WARN 20048 --- [order-service] [main] [                                                 ] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-29T18:04:35.632+07:00  INFO 20048 --- [order-service] [main] [                                                 ] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 14.22
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-29T18:04:42.573+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-29T18:04:45.381+07:00  INFO 20048 --- [order-service] [main] [                                                 ] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-29T18:04:49.968+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-04-29T18:04:52.330+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-04-29T18:04:56.018+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'order-service.springCloudBusInput' has 1 subscriber(s).
+2026-04-29T18:05:07.520+07:00  WARN 20048 --- [order-service] [main] [                                                 ] o.s.aop.framework.CglibAopProxy          : Unable to proxy interface-implementing method [public final void org.springframework.amqp.rabbit.connection.CachingConnectionFactory.destroy()] because it is marked as final, consider using interface-based JDK proxies instead.
+2026-04-29T18:05:07.523+07:00  WARN 20048 --- [order-service] [main] [                                                 ] o.s.aop.framework.CglibAopProxy          : Unable to proxy interface-implementing method [public final org.springframework.amqp.rabbit.connection.Connection org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection() throws org.springframework.amqp.AmqpException] because it is marked as final, consider using interface-based JDK proxies instead.
+2026-04-29T18:05:07.813+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Registering MessageChannel errorChannel
+2026-04-29T18:05:07.841+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Registering MessageChannel springCloudBusInput
+2026-04-29T18:05:07.862+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Registering MessageChannel nullChannel
+2026-04-29T18:05:07.874+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Registering MessageHandler _org.springframework.integration.errorLogger.handler
+2026-04-29T18:05:07.938+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Located managed bean 'org.springframework.integration:type=ManagedEndpoint,name=errorLogger,bean=internal': registering with JMX server as MBean [org.springframework.integration:type=ManagedEndpoint,name=errorLogger,bean=internal]
+2026-04-29T18:05:07.967+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Registered endpoint without MessageSource: org.springframework.integration:type=ManagedEndpoint,name=errorLogger,bean=internal
+2026-04-29T18:05:08.326+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-04-29T18:05:08.328+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.i.channel.PublishSubscribeChannel    : Channel 'order-service.errorChannel' has 1 subscriber(s).
+2026-04-29T18:05:08.330+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2026-04-29T18:05:08.789+07:00  INFO 20048 --- [order-service] [main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-29T18:05:08.942+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-29T18:05:09.167+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-29T18:05:09.180+07:00  INFO 20048 --- [order-service] [main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-29T18:05:09.204+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-29T18:05:09.205+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-29T18:05:09.205+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-29T18:05:09.205+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-29T18:05:09.205+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-29T18:05:09.205+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-29T18:05:09.206+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-29T18:05:10.978+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-29T18:05:10.985+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-29T18:05:10.993+07:00  INFO 20048 --- [order-service] [main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-29T18:05:10.999+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1777460710997 with initial instances count: 2
+2026-04-29T18:05:11.041+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ORDER-SERVICE with eureka with status UP
+2026-04-29T18:05:11.043+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1777460711043, current=UP, previous=STARTING]
+2026-04-29T18:05:11.053+07:00  INFO 20048 --- [order-service] [DiscoveryClient-InstanceInfoReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ORDER-SERVICE/localhost:order-service:8083: registering service...
+2026-04-29T18:05:11.054+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2026-04-29T18:05:11.054+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.s.binder.DefaultBinderFactory      : Constructing binder child context for rabbit
+2026-04-29T18:05:11.264+07:00  INFO 20048 --- [order-service] [DiscoveryClient-InstanceInfoReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ORDER-SERVICE/localhost:order-service:8083 - registration status: 204
+2026-04-29T18:05:11.582+07:00  WARN 20048 --- [order-service] [main] [                                                 ] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-29T18:05:11.758+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2026-04-29T18:05:11.818+07:00  INFO 20048 --- [order-service] [main] [                                                 ] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.BcsLBbHtS7CsHNbKnDlGyA, bound to: springCloudBus
+2026-04-29T18:05:11.841+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-04-29T18:05:12.197+07:00  WARN 20048 --- [order-service] [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-04-29T18:05:12.198+07:00  WARN 20048 --- [order-service] [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 2 spans due to ConnectException()
+
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:923) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133) ~[java.net.http:na]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinHttpClientSender.postSpans(ZipkinHttpClientSender.java:60) ~[spring-boot-actuator-autoconfigure-3.5.13.jar:3.5.13]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.5.13.jar:3.5.13]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.5.13.jar:3.5.13]
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.5.3.jar:na]
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.5.3.jar:na]
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.5.3.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1046) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:215) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:268) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:226) ~[java.net.http:na]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:980) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:957) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:556) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1819) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619) ~[na:na]
+	... 1 common frames omitted
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:204) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:942) ~[na:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:203) ~[java.net.http:na]
+	... 9 common frames omitted
+
+2026-04-29T18:05:12.969+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#95237fc:0/SimpleConnection@2b488a42 [delegate=amqp://guest@127.0.0.1:5672/, localPort=50319]
+2026-04-29T18:05:13.975+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-1837421425.springCloudBusInput.errors' has 1 subscriber(s).
+2026-04-29T18:05:13.977+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-1837421425.springCloudBusInput.errors' has 2 subscriber(s).
+2026-04-29T18:05:14.436+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.BcsLBbHtS7CsHNbKnDlGyA'
+2026-04-29T18:05:14.611+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2026-04-29T18:05:14.634+07:00  INFO 20048 --- [order-service] [main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2026-04-29T18:05:15.667+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-04-29T18:05:16.690+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-04-29T18:05:17.076+07:00  INFO 20048 --- [order-service] [main] [                                                 ] figuration$IntegrationJmxConfiguration$1 : Registering MessageChannel rabbit-1837421425.springCloudBusInput.errors
+2026-04-29T18:05:19.874+07:00  INFO 20048 --- [order-service] [main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 35 endpoints beneath base path '/actuator'
+2026-04-29T18:05:20.185+07:00  INFO 20048 --- [order-service] [main] [                                                 ] com.ecommerce.order.OrderApplication     : Started OrderApplication in 75.666 seconds (process running for 78.537)
+2026-04-29T18:06:32.367+07:00  INFO 20048 --- [order-service] [http-nio-8083-exec-4] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-29T18:06:32.383+07:00  INFO 20048 --- [order-service] [http-nio-8083-exec-4] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-29T18:06:33.699+07:00  INFO 20048 --- [order-service] [http-nio-8083-exec-4] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1312 ms
+2026-04-29T18:10:09.339+07:00  INFO 20048 --- [order-service] [AsyncResolver-bootstrap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-29T18:15:09.493+07:00  INFO 20048 --- [order-service] [AsyncResolver-bootstrap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-29T18:20:09.558+07:00  INFO 20048 --- [order-service] [AsyncResolver-bootstrap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-29T18:25:09.616+07:00  INFO 20048 --- [order-service] [AsyncResolver-bootstrap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-29T18:26:32.157+07:00  WARN 20048 --- [order-service] [http-nio-8083-exec-2] [69f1eae70228443af02c00eb7b97b307-b2c5b3f6889da59b] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: product-service
+2026-04-29T18:26:34.016+07:00  WARN 20048 --- [order-service] [http-nio-8083-exec-2] [69f1eae70228443af02c00eb7b97b307-b2c5b3f6889da59b] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: product-service
+2026-04-29T18:26:34.583+07:00  WARN 20048 --- [order-service] [http-nio-8083-exec-2] [69f1eae70228443af02c00eb7b97b307-b2c5b3f6889da59b] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: product-service
+2026-04-29T18:26:35.261+07:00  WARN 20048 --- [order-service] [http-nio-8083-exec-2] [69f1eae70228443af02c00eb7b97b307-b2c5b3f6889da59b] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: product-service
+2026-04-29T18:26:35.804+07:00  WARN 20048 --- [order-service] [http-nio-8083-exec-2] [69f1eae70228443af02c00eb7b97b307-b2c5b3f6889da59b] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: product-service
+2026-04-29T18:30:09.707+07:00  INFO 20048 --- [order-service] [AsyncResolver-bootstrap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-29T18:35:09.823+07:00  INFO 20048 --- [order-service] [AsyncResolver-bootstrap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
