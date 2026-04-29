@@ -1,0 +1,26 @@
+spring:
+  main:
+    lazy-initialization: true
+  application:
+    name: configserver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///D:\Spring-Boot\ecom-microservices\configserver\src\main\resources\config
+
+server:
+  port: 8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

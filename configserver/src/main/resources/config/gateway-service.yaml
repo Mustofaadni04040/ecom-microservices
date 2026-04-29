@@ -1,0 +1,70 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: user-service
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/users/**
+#          filters:
+#            - "RewritePath=/users/(?<segment>/?.*), /api/users{segment}"
+#        - id: order-service
+#          uri: lb://order-service
+#          predicates:
+#            - Path=/orders/**, /cart/**
+#          filters:
+#            - "RewritePath=/(?<segment>.*), /api{segment}"
+#        - id: product-service
+#          uri: lb://product-service
+#          predicates:
+#            - Path=/products/**
+#          filters:
+#            - "RewritePath=/products/(?<segment>/?.*), /api/products${segment}"
+#        - id: eureka-server
+#          uri: http://localhost:8761
+#          predicates:
+#            - Path=/eureka/main
+#          filters:
+#            - SetPath=/
+#        - id: eureka-server-static
+#          uri: http://localhost:8761
+#          predicates:
+#            - Path=/eureka/**
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+    org.springframework.cloud.gateway.route.RouteDefinitionLocator: info
+    org.springframework.cloud.gateway: trace
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      ecomBreaker:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        slidingWindowType: count_based
