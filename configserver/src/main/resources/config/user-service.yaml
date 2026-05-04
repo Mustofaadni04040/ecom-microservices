@@ -39,3 +39,10 @@ logging:
       max-file-size: 5MB
       max-history: 7
 
+keycloak:
+  admin:
+    username: user
+    password: user123
+    realm: ecom-app
+    client-id: admin-cli
+    server-url: http://localhost:8443
