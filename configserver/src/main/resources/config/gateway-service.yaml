@@ -44,6 +44,11 @@ spring:
         response-timeout: 10000ms
         pool:
           max-idle-time: 10000ms
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8443/realms/ecom-app
 
 logging:
   level:
