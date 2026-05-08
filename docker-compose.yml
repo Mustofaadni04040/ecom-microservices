@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: postgres_container
+    container_name: postgres
     image: postgres:14
     environment:
         POSTGRES_USER: postgres
@@ -72,6 +72,8 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
     networks:
       - backend
 
@@ -87,6 +89,22 @@ services:
     networks:
       - backend
     restart: unless-stopped
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - 9411:9411
+    networks:
+      - backend
+
+  config-server:
+    build: ./configserver
+    container_name: config-server
+    ports:
+      - 8888:8888
+    networks:
+      - backend
 
 networks:
     backend:

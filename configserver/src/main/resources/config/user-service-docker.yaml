@@ -1,0 +1,49 @@
+spring:
+  data:
+    mongodb:
+#      uri:mongodb+srv://adniadni04_db_user:adniadni1234@user-data.zbv41r2.mongodb.net/?appName=user-data
+      uri: ${MONGO_URI}
+      database: userdb
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    virtual-host: ${RABBITMQ_VHOST:guest}
+    connection-timeout: 30000
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 7
+
+keycloak:
+  admin:
+    username: user
+    password: user123
+    realm: ecom-app
+    client-id: admin-cli
+    server-url: http://keycloak:8080
+    client-Uid: 3b27bd9e-3859-4caf-9159-68cbb136e258
