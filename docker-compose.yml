@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
 
   keycloak:
-    container_name: keycloak_container
+    container_name: keycloak
     image: quay.io/keycloak/keycloak:26.6.1
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
@@ -78,7 +78,7 @@ services:
       - backend
 
   rabbitmq:
-    container_name: rabbitmq_container
+    container_name: rabbitmq
     image: rabbitmq:3-management
     environment:
       RABBITMQ_DEFAULT_USER: guest
@@ -105,6 +105,15 @@ services:
       - 8888:8888
     networks:
       - backend
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH_LOCATIONS=classpath:/config
+      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
+      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
+      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/}
+    volumes:
+      - ./configserver/src/main/resources/config:/config
 
 networks:
     backend:
