@@ -91,3 +91,10 @@ resilience4j:
       ecomBreaker:
         timeoutDuration: 10s
         cancelRunningFuture: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

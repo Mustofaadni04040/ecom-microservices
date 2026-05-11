@@ -5,9 +5,9 @@ services:
     environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
-        PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
+      - ./init-multi-db.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5433:5432"
     networks:
@@ -94,26 +94,152 @@ services:
     image: openzipkin/zipkin
     container_name: zipkin
     ports:
-      - 9411:9411
+      - "9411:9411"
     networks:
       - backend
 
-  config-server:
-    build: ./configserver
-    container_name: config-server
-    ports:
-      - 8888:8888
-    networks:
-      - backend
-    environment:
-      - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH_LOCATIONS=classpath:/config
-      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
-      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
-      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
-      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
-      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/}
-    volumes:
-      - ./configserver/src/main/resources/config:/config
+#  config-server:
+#    build: ./configserver
+#    container_name: config-server
+#    ports:
+#      - "8888:8888"
+#    networks:
+#      - backend
+#    environment:
+#      - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH_LOCATIONS=classpath:/config
+#      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
+#      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+#      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+#      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
+#      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/}
+#    volumes:
+#      - ./configserver/src/main/resources/config:/config
+#    healthcheck:
+#      test: [ "CMD", "wget", "--spider", "http://localhost:8888/actuator/health" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+
+#  eureka:
+#    build: ./eureka
+#    container_name: eureka
+#    ports:
+#      - "8761:8761"
+#    networks:
+#      - backend
+#    healthcheck:
+#      test: [ "CMD", "wget", "--spider", "http://localhost:8761/actuator/health" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+
+#  gateway-service:
+#    build: ./gateway
+#    container_name: gateway-service
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    depends_on:
+#      mongo:
+#        condition: service_started
+#      rabbitmq:
+#        condition: service_started
+#      eureka:
+#        condition: service_healthy
+#      keycloak:
+#        condition: service_started
+#      config-server:
+#        condition: service_healthy
+#    networks:
+#      - backend
+#    restart: on-failure
+#
+#  user-service:
+#    build: ./user
+#    container_name: user-service
+#    ports:
+#      - "8082:8082"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#      - MONGO_URI=${MONGO_URL:-mongodb://mongo:27017/userdb}
+#      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
+#      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+#      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+#      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
+#      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/}
+#    depends_on:
+#      mongo:
+#        condition: service_started
+#      rabbitmq:
+#        condition: service_started
+#      eureka:
+#        condition: service_healthy
+#      keycloak:
+#        condition: service_started
+#      config-server:
+#        condition: service_healthy
+#    networks:
+#      - backend
+#    restart: on-failure
+#
+#  product-service:
+#    build: ./product
+#    container_name: product-service
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#      - DB_USER=${DB_USER:-postgres}
+#      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+#      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
+#      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+#      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+#      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
+#      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/}
+#    depends_on:
+#      mongo:
+#        condition: service_started
+#      rabbitmq:
+#        condition: service_started
+#      eureka:
+#        condition: service_healthy
+#      keycloak:
+#        condition: service_started
+#      config-server:
+#        condition: service_healthy
+#    networks:
+#      - backend
+#    restart: on-failure
+#
+#  order-service:
+#    build: ./order
+#    container_name: order-service
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#      - DB_USER=${DB_USER:-postgres}
+#      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+#      - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
+#      - RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+#      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+#      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
+#      - RABBITMQ_VHOST=${RABBITMQ_VHOST:-/}
+#    depends_on:
+#      mongo:
+#        condition: service_started
+#      rabbitmq:
+#        condition: service_started
+#      eureka:
+#        condition: service_healthy
+#      keycloak:
+#        condition: service_started
+#      config-server:
+#        condition: service_healthy
+#    networks:
+#      - backend
+#    restart: on-failure
 
 networks:
     backend:

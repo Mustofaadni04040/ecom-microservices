@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/order
+    url: jdbc:postgresql://localhost:5433/orderdb
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:postgres}
 #  rabbitmq:

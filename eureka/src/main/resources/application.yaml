@@ -13,3 +13,8 @@ eureka:
     fetch-registry: false
     registry-fetch-interval-seconds: 5
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

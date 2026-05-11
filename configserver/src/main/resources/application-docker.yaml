@@ -8,7 +8,7 @@ spring:
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USERNAME:guest}
     password: ${RABBITMQ_PASSWORD:guest}
-    virtual-host: ${RABBITMQ_VHOST:guest}
+    virtual-host: ${RABBITMQ_VHOST:/}
     connection-timeout: 30000
   profiles:
     active: native
@@ -16,7 +16,7 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/config
+          search-locations: file:/config
 
 server:
   port: 8888

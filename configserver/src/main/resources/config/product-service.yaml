@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/product
+    url: jdbc:postgresql://localhost:5433/productdb
     username: ${DB_USER}
     password: ${DB_PASSWORD}
   rabbitmq:
@@ -8,7 +8,7 @@ spring:
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USERNAME:guest}
     password: ${RABBITMQ_PASSWORD:guest}
-    virtual-host: ${RABBITMQ_VHOST:guest}
+    virtual-host: ${RABBITMQ_VHOST:/}
     connection-timeout: 30000
   jpa:
     database: POSTGRESQL
